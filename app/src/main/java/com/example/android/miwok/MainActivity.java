@@ -15,17 +15,12 @@
  */
 package com.example.android.miwok;
 
-import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
-import static com.example.android.miwok.R.id.numbers;
-import static com.example.android.miwok.R.id.phrases;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,27 +70,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    /*
-    public void openFamily(View view) {
-        Intent i = new Intent(this, FamilyActivity.class);
-        startActivity(i);
-        setContentView(R.layout.activity_family);
-    }
-    public void openNumbers(View view) {
-        Intent i = new Intent(this, NumbersActivity.class);
-        startActivity(i);
-        setContentView(R.layout.activity_numbers);
-    }
-    public void openColors(View view) {
-        Intent i = new Intent(this, ColorsActivity.class);
-        startActivity(i);
-        setContentView(R.layout.activity_colors);
-    }
-    public void openPhrases(View view) {
-        Intent i = new Intent(this, PhrasesActivity.class);
-        startActivity(i);
-        setContentView(R.layout.activity_phrases);
-    }
-    */
 }

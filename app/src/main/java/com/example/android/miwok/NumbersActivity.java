@@ -2,10 +2,7 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
+import android.widget.ListView;
 import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
@@ -13,50 +10,23 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
+        setContentView(R.layout.word_list);
 
-        ArrayList<String> numbers = new ArrayList<String>();
-        numbers.add("one");
-        numbers.add("two");
-        numbers.add("three");
-        numbers.add("four");
-        numbers.add("five");
-        numbers.add("six");
-        numbers.add("seven");
-        numbers.add("eight");
-        numbers.add("nine");
-        numbers.add("ten");
+        ArrayList<Word> words = new ArrayList<Word>();
+        words.add(new Word("one", "lutti", R.drawable.number_one));
+        words.add(new Word("two", "otiiko", R.drawable.number_two));
+        words.add(new Word("three", "tolookosu", R.drawable.number_three));
+        words.add(new Word("four", "oyyisa", R.drawable.number_four));
+        words.add(new Word("five", "massokka", R.drawable.number_five));
+        words.add(new Word("six", "temmokka", R.drawable.number_six));
+        words.add(new Word("seven", "kenekaku", R.drawable.number_seven));
+        words.add(new Word("eight", "kawinta", R.drawable.number_eight));
+        words.add(new Word("nine", "wo’e", R.drawable.number_nine));
+        words.add(new Word("ten", "na’aacha", R.drawable.number_ten));
 
-        LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
+        WordAdapter adapter = new WordAdapter(this, words);
 
-        int TextViewCount = numbers.size();
-        TextView[] textViewArray = new TextView[TextViewCount];
-        for (int i = 0; i < TextViewCount; i++)
-        {
-            textViewArray[i] = new TextView(this);
-        }
-
-        for (int i = 0; i < TextViewCount; i++)
-        {
-            textViewArray[i].setText(numbers.get(i));
-            rootView.addView(textViewArray[i]);
-        }
-        /*while (i < numbers.size()) {
-            TextView wordView = new TextView(this);
-            wordView.setText(numbers.get(i));
-            rootView.addView(wordView);
-        }*/
-
-        /*TextView wordView = new TextView(this);
-        wordView.setText(numbers.get(0));
-        rootView.addView(wordView);
-
-        TextView wordView1 = new TextView(this);
-        wordView1.setText(numbers.get(1));
-        rootView.addView(wordView1);
-
-        TextView wordView2 = new TextView(this);
-        wordView2.setText(numbers.get(2));
-        rootView.addView(wordView2);*/
+        ListView listView = (ListView) findViewById(R.id.list);
+        listView.setAdapter(adapter);
     }
 }
